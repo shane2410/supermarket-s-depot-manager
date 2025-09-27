@@ -17,6 +17,9 @@ class HangHoa {
 
   public:
     HangHoa();
+    HangHoa(string maHH, string tenHH, string donViTinh, double giaNhap,
+            double giaBan, int soLuongTon, string maNCC, Date ngaySanXuat,
+            Date hanSuDung);
     ~HangHoa();
     // get
     string getMaHH() const;
@@ -43,6 +46,7 @@ class HangHoa {
     static void printWrappedString(ostream &os, const string &str, int maxwidth,
                                    const string &padding);
     friend ostream &operator<<(ostream &os, const HangHoa &hh);
+    string getKey() const;
 };
 
 #endif

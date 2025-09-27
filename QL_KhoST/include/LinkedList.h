@@ -6,22 +6,22 @@ typedef bool (*CompareFunc)(int, int);
 bool asc(int a, int b);
 bool desc(int a, int b);
 
-#ifndef Linkedlist_h
-#define Linkedlist_h
+#ifndef LinkedList_h
+#define LinkedList_h
 #include "HangHoa.h"
 #include "Node.h"
 
-template <typename T> class Linkedlist : HangHoa {
+template <typename T> class LinkedList : HangHoa {
   private:
     Node<T> *pHead;
     Node<T> *pTail;
     int size;
 
   public:
-    Linkedlist();
-    ~Linkedlist();
+    LinkedList();
+    ~LinkedList();
     int getSize() const;
-    Linkedlist(const Linkedlist &other);
+    LinkedList(const LinkedList &other);
     void addFirst(const T &data);
     void addLast(const T &data);
     template <typename KeyType>
@@ -29,7 +29,6 @@ template <typename T> class Linkedlist : HangHoa {
     void add(const T &data);
     void deleteFirst();
     void deleteLast();
-    template <typename KeyType>
     bool deletebyCond(bool (*condition)(const T &, const string &),
                       const string &Key);
     bool remove(T &data);
@@ -37,6 +36,6 @@ template <typename T> class Linkedlist : HangHoa {
     Node<T> *getTail() const;
     void sort(CompareFunc compare);
     template <typename U>
-    friend ostream &operator<<(ostream &os, const Linkedlist<U> &list);
+    friend ostream &operator<<(ostream &os, const LinkedList<U> &list);
 };
 #endif

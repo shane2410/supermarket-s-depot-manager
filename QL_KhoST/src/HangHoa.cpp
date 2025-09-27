@@ -30,7 +30,19 @@ void HangHoa::setNgaySanXuat(Date ngaySanXuat) {
     this->ngaySanXuat = ngaySanXuat;
 }
 void HangHoa::setHanSuDung(Date hanSuDung) { this->hanSuDung = hanSuDung; }
-
+HangHoa::HangHoa(string maHH, string tenHH, string donViTinh, double giaNhap,
+                 double giaBan, int soLuongTon, string maNCC, Date ngaySanXuat,
+                 Date hanSuDung) {
+    this->maHH = maHH;
+    this->tenHH = tenHH;
+    this->donViTinh = donViTinh;
+    this->giaNhap = giaNhap;
+    this->giaBan = giaBan;
+    this->soLuongTon = soLuongTon;
+    this->maNCC = maNCC;
+    this->ngaySanXuat = ngaySanXuat;
+    this->hanSuDung = hanSuDung;
+}
 //
 
 void HangHoa::capNhatSoLuong(int soLuongThayDoi) {
@@ -104,3 +116,5 @@ ostream &operator<<(ostream &os, const HangHoa &hh) {
        << hh.getHanSuDung();
     return os;
 }
+
+string HangHoa::getKey() const { return this->maHH; }

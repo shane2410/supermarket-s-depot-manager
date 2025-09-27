@@ -1,8 +1,7 @@
 #include "../include/LinkedList.h"
 #include "../include/HangHoa.h"
-template <typename T>
 
-void swap(T &a, T &b) {
+template <typename T> void swap(T &a, T &b) {
     T temp = a;
     a = b;
     b = temp;
@@ -11,16 +10,16 @@ void swap(T &a, T &b) {
 template <typename T> bool asc(int a, int b) { return a > b; }
 template <typename T> bool desc(int a, int b) { return a < b; }
 template <typename T>
-Linkedlist<T>::Linkedlist() : pHead(nullptr), pTail(nullptr) {}
+LinkedList<T>::LinkedList() : pHead(nullptr), pTail(nullptr) {}
 
-template <typename T> Linkedlist<T>::~Linkedlist() {
+template <typename T> LinkedList<T>::~LinkedList() {
     while (pHead != nullptr) {
         deleteFirst();
     }
 }
 
 template <typename T>
-Linkedlist<T>::Linkedlist(const Linkedlist &other)
+LinkedList<T>::LinkedList(const LinkedList &other)
     : pHead(nullptr), pTail(nullptr) {
     pHead = nullptr;
     pTail = nullptr;
@@ -30,7 +29,7 @@ Linkedlist<T>::Linkedlist(const Linkedlist &other)
     }
 }
 
-template <typename T> void Linkedlist<T>::addFirst(const T &data) {
+template <typename T> void LinkedList<T>::addFirst(const T &data) {
     Node<T> *newNode = new Node(data);
     if (pHead == nullptr) {
         pHead = pTail = newNode;
@@ -40,8 +39,8 @@ template <typename T> void Linkedlist<T>::addFirst(const T &data) {
     }
 }
 
-template <typename T> void Linkedlist<T>::addLast(const T &x) {
-    Node<T> *newNode = new Node(x);
+template <typename T> void LinkedList<T>::addLast(const T &data) {
+    Node<T> *newNode = new Node(data);
     if (pHead == nullptr) {
         pHead = pTail = newNode;
     } else {
@@ -52,7 +51,7 @@ template <typename T> void Linkedlist<T>::addLast(const T &x) {
 
 template <typename T>
 template <typename KeyType>
-bool Linkedlist<T>::addAfter(const KeyType &targetkey, const T &newData) {
+bool LinkedList<T>::addAfter(const KeyType &targetkey, const T &newData) {
     Node<T> *current = pHead;
     while (current != nullptr && current->data.getKey != targetkey) {
         current = current->pNext;
@@ -69,9 +68,9 @@ bool Linkedlist<T>::addAfter(const KeyType &targetkey, const T &newData) {
     return false;
 }
 
-template <typename T> void Linkedlist<T>::add(const T &data) { addLast(data); }
+template <typename T> void LinkedList<T>::add(const T &data) { addLast(data); }
 
-template <typename T> void Linkedlist<T>::deleteFirst() {
+template <typename T> void LinkedList<T>::deleteFirst() {
     if (pHead == nullptr)
         return;
     Node<T> *temp = pHead;
@@ -81,7 +80,7 @@ template <typename T> void Linkedlist<T>::deleteFirst() {
         pTail = nullptr;
 }
 
-template <typename T> void Linkedlist<T>::deleteLast() {
+template <typename T> void LinkedList<T>::deleteLast() {
     if (pHead == nullptr)
         return;
     if (pHead == pTail) {
@@ -99,8 +98,7 @@ template <typename T> void Linkedlist<T>::deleteLast() {
 }
 
 template <typename T>
-template <typename KeyType>
-bool Linkedlist<T>::deletebyCond(bool (*condition)(const T &, const string &),
+bool LinkedList<T>::deletebyCond(bool (*condition)(const T &, const string &),
                                  const string &Key) {
     if (pHead == nullptr)
         return false;
@@ -114,7 +112,7 @@ bool Linkedlist<T>::deletebyCond(bool (*condition)(const T &, const string &),
     if (current == nullptr)
         return false;
     if (prev == nullptr) {
-        pHead = pHead->pNext;
+        pHead = current->pNext;
         if (pHead == nullptr) {
             pTail = nullptr;
         } else {
@@ -127,7 +125,7 @@ bool Linkedlist<T>::deletebyCond(bool (*condition)(const T &, const string &),
     size--;
     return true;
 }
-template <typename T> bool Linkedlist<T>::remove(T &data) {
+template <typename T> bool LinkedList<T>::remove(T &data) {
     if (pHead == nullptr)
         return false;
     if (pHead->data == data) {
@@ -149,7 +147,7 @@ template <typename T> bool Linkedlist<T>::remove(T &data) {
     }
     return false;
 }
-template <typename T> void Linkedlist<T>::sort(CompareFunc compare) {
+template <typename T> void LinkedList<T>::sort(CompareFunc compare) {
     if (pHead == nullptr)
         return;
     for (Node<T> *i = pHead; i != nullptr; i = i->pNext) {
@@ -162,7 +160,7 @@ template <typename T> void Linkedlist<T>::sort(CompareFunc compare) {
 }
 
 template <typename T>
-ostream &operator<<(ostream &os, const Linkedlist<T> &list) {
+ostream &operator<<(ostream &os, const LinkedList<T> &list) {
     //  maHH, tenHH, donViTinh, giaNhap, giaBan, soLuongTon, maNCC, ngaySanXuat,
     //  hanSuDung
     int getw[] = {12, 30, 12, 15, 15, 10, 12, 12, 12};
