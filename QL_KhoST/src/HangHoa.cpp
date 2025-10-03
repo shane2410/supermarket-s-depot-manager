@@ -9,6 +9,7 @@ HangHoa::HangHoa() {
     this->soLuongTon = 0;
     this->maNCC = "";
 }
+HangHoa::~HangHoa() {}
 string HangHoa::getMaHH() const { return this->maHH; }
 string HangHoa::getTenHH() const { return this->tenHH; }
 string HangHoa::getDonViTinh() const { return this->donViTinh; }
@@ -55,8 +56,8 @@ void HangHoa::capNhatSoLuong(int soLuongThayDoi) {
     }
 }
 
-void HangHoa::printWrappedString(ostream &os, const string &str, int maxwidth,
-                                 const string &padding) {
+void HangHoa::printWrappedString(ostream &os, const string &str,
+                                 size_t maxwidth, const string &padding) {
     stringstream textStream(str);
     string word, firstline;
     bool isFirstWord = true;
@@ -106,14 +107,14 @@ void HangHoa::printWrappedString(ostream &os, const string &str, int maxwidth,
 ostream &operator<<(ostream &os, const HangHoa &hh) {
     //  maHH, tenHH, donViTinh, giaNhap, giaBan, soLuongTon, maNCC, ngaySanXuat,
     //  hanSuDung
-    int getw[] = {12, 30, 12, 15, 15, 10, 12, 12, 12};
-    os << left << " | " << setw(getw[0]) << hh.getMaHH() << " | "
+    int getw[] = {8, 20, 8, 12, 12, 8, 12, 9, 9};
+    os << left << "| " << setw(getw[0]) << hh.getMaHH() << " | "
        << setw(getw[1]) << hh.getTenHH() << " | " << setw(getw[2])
        << hh.getDonViTinh() << " | " << setw(getw[3]) << hh.getGiaNhap()
        << " | " << setw(getw[4]) << hh.getGiaBan() << " | " << setw(getw[5])
        << hh.getSoLuongTon() << " | " << setw(getw[6]) << hh.getMaNCC() << " | "
-       << setw(getw[7]) << hh.getNgaySanXuat() << " | " << setw(getw[8])
-       << hh.getHanSuDung();
+       << right << setw(getw[7]) << hh.getNgaySanXuat() << " | "
+       << setw(getw[8]) << hh.getHanSuDung() << " |" << endl;
     return os;
 }
 

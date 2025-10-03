@@ -31,8 +31,8 @@ int main() {
     // === 2. KIỂM THỬ LỚP HANGHOA =======
     // ===================================
     std::cout << "\n----- [TEST 2]: LOP HANGHOA -----\n";
-    HangHoa hhSua("HH01", "Sua Tuoi Vinamilk 1L", "Hop", 15000, 18000, 100,
-                  "NCC-VM", Date(1, 1, 2025), Date(1, 7, 2025));
+    HangHoa hhSua("HH01", "Sua Tuoi Vinamilk 1LLLLLLLLLL", "Hop", 15000, 18000,
+                  100, "NCC-VM", Date(1, 1, 2025), Date(1, 7, 2025));
     std::cout << "Da tao doi tuong HangHoa. Hien thi thong tin:\n";
     cout << hhSua;
     std::cout << "Test getKey(): " << hhSua.getKey() << std::endl;
@@ -93,8 +93,9 @@ int main() {
                                   "NCC1", Date(), Date()));
     dsHangHoaTest.addLast(HangHoa("HH02", "Banh My", "Cai", 5000, 7000, 200,
                                   "NCC2", Date(), Date()));
-    dsHangHoaTest.addLast(HangHoa("HH03", "Nuoc Suoi", "Chai", 3000, 5000, 300,
-                                  "NCC3", Date(), Date()));
+    dsHangHoaTest.addLast(
+        HangHoa("HH03", "Nuoc Suoi hiaushdjhasdkahdkjhkjdjkhaksdh", "Chai",
+                3000, 5000, 300, "NCC3", Date(), Date()));
     dsHangHoaTest.addLast(HangHoa("HH04", "Keo Mut", "Goi", 10000, 15000, 150,
                                   "NCC2", Date(), Date()));
 

@@ -3,7 +3,7 @@
 PhieuNhap::PhieuNhap() : thanhTien(0) {}
 PhieuNhap::PhieuNhap(const string &maPhieu, const Date &ngay,
                      const string &maNCC)
-    : maPhieuNhap(maPhieuNhap), ngayNhap(ngay), maNCC(maNCC), thanhTien(0) {}
+    : maPhieuNhap(maPhieu), ngayNhap(ngay), maNCC(maNCC), thanhTien(0) {}
 string PhieuNhap::getMaNCC() const { return maNCC; }
 Date PhieuNhap::getNgayNhap() const { return ngayNhap; }
 string PhieuNhap::getMaPhieuNhap() const { return maPhieuNhap; }
@@ -16,7 +16,7 @@ string PhieuNhap::getKey() const { return this->maPhieuNhap; }
 PhieuXuat::PhieuXuat() : thanhTien(0) {}
 PhieuXuat::PhieuXuat(const string &maPhieu, const Date &ngay,
                      const string &TenKH)
-    : maPhieuXuat(maPhieuXuat), ngayXuat(ngay), TenKH(TenKH), thanhTien(0) {}
+    : maPhieuXuat(maPhieu), ngayXuat(ngay), TenKH(TenKH), thanhTien(0) {}
 
 string PhieuXuat::getMaPhieuXuatI() { return this->maPhieuXuat; }
 Date PhieuXuat::getNgayXuat() { return this->ngayXuat; }
@@ -34,6 +34,9 @@ void PhieuNhap::tinhThanhtien() const {
         current = current->pNext;
     }
 }
+PhieuNhap::~PhieuNhap() {}
+PhieuXuat::~PhieuXuat() {}
+
 void PhieuXuat::tinhThanhtien() const {
     double thanhTien = 0.0;
     Node<ChitietPhieuXuat> *current = dsCTPX.getHead();

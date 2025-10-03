@@ -17,7 +17,9 @@ template <typename T> LinkedList<T>::~LinkedList() {
         deleteFirst();
     }
 }
-
+template <typename T> int LinkedList<T>::getSize() const { return size; }
+template <typename T> Node<T> *LinkedList<T>::getHead() const { return pHead; }
+template <typename T> Node<T> *LinkedList<T>::getTail() const { return pTail; }
 template <typename T>
 LinkedList<T>::LinkedList(const LinkedList &other)
     : pHead(nullptr), pTail(nullptr) {
@@ -167,17 +169,17 @@ ostream &operator<<(ostream &os, const LinkedList<T> &list) {
     const int TOTAL_WIDTH =
         getw[0] + getw[1] + getw[2] + getw[4] + getw[5] + getw[8] + 19;
     if (list.pHead == nullptr) {
-        os << "Danh sach hang hoa rong." << endl;
+        os << "Danh sách hàng hóa rỗng." << endl;
         return os;
     }
 
     os << string(TOTAL_WIDTH, '-') << endl;
-    os << "| " << left << setw(getw[0]) << "Ma HH"
-       << " | " << setw(getw[1]) << "Ten Hang Hoa"
-       << " | " << setw(getw[2]) << "DVT"
-       << " | " << right << setw(getw[4]) << "Gia Ban (VND)"
-       << " | " << setw(getw[5]) << "SL Ton"
-       << " | " << left << setw(getw[8]) << "Han Su Dung"
+    os << "| " << left << setw(getw[0]) << "Mã HH"
+       << " | " << setw(getw[1]) << "Tên HH"
+       << " | " << setw(getw[2]) << "ĐVT"
+       << " | " << right << setw(getw[4]) << "Giá Bán (VND)"
+       << " | " << setw(getw[5]) << "SL Tồn"
+       << " | " << left << setw(getw[8]) << "Hạn Sử Dụng"
        << " |" << endl;
     os << string(TOTAL_WIDTH, '-') << endl;
 

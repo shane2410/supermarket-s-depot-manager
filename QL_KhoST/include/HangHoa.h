@@ -43,8 +43,8 @@ class HangHoa {
     void setHanSuDung(Date hanSuDung);
     //
     void capNhatSoLuong(int soLuong);
-    static void printWrappedString(ostream &os, const string &str, int maxwidth,
-                                   const string &padding);
+    static void printWrappedString(ostream &os, const string &str,
+                                   size_t maxwidth, const string &padding);
     friend ostream &operator<<(ostream &os, const HangHoa &hh);
     string getKey() const;
 };

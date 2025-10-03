@@ -61,8 +61,7 @@ class PhieuXuat {
   public:
     PhieuXuat();
     ~PhieuXuat();
-    PhieuXuat(const string &maPhieuXuat, const Date &ngayXuat,
-              const string &TenKH);
+    PhieuXuat(const string &maPhieu, const Date &ngay, const string &TenKH);
     string getMaPhieuXuatI();
     Date getNgayXuat();
     string getTenKH();
