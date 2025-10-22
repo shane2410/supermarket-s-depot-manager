@@ -7,9 +7,10 @@ using namespace std;
 class QuanLyNguoiDung : public NguoiDung{
     LinkedList<NguoiDung>dsnguoidung;
     public:
-        NguoiDung* nguoidunghientai;
+        NguoiDung nguoidunghientai;
         NguoiDung dangnhap();
         NguoiDung dangxuat();
         NguoiDung thongtinnguoidung();
 };
 #endif
+
